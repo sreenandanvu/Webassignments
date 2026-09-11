@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sreenandan V U - Resume</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #222222;
+            line-height: 1.4;
+        }
+
+        .resume {
+            max-width: 850px;
+            margin: 25px auto;
+            background: #ffffff;
+        }
+
+
+      
+        .header {
+            padding-bottom: 15px;
+            border-bottom: 2px solid #222222;
+        }
+
+        .header h1 {
+            font-size: 30px;
+            margin-bottom: 4px;
+        }
+
+        .job-title {
+            font-size: 15px;
+            color: #444444;
+            margin-bottom: 10px;
+        }
+
+
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 18px;
+            font-size: 13px;
+        }
+
+        .contact a {
+            color: #222222;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            padding-top: 18px;
+        }
+
+
+        .section {
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #222222;
+
+            border-bottom: 1px solid #999999;
+
+            padding-bottom: 3px;
+            margin-bottom: 9px;
+        }
+
+
+        .summary {
+            font-size: 13px;
+            color: #333333;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px 30px;
+        }
+
+        .skill-category h3 {
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+
+        .skill-category p {
+            font-size: 13px;
+            color: #444444;
+        }
+
+        .tags {
+            display: none;
+        }
+
+        .item {
+            margin-bottom: 12px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item h3 {
+            font-size: 14px;
+            color: #222222;
+            margin-bottom: 2px;
+        }
+
+        .organization {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .meta {
+            font-size: 12px;
+            color: #555555;
+            margin-bottom: 3px;
+        }
+
+        .item p {
+            font-size: 13px;
+            color: #444444;
+        }
+
+        .item ul {
+            padding-left: 17px;
+            margin-top: 3px;
+        }
+
+        .item li {
+            font-size: 13px;
+            color: #444444;
+            margin-bottom: 2px;
+        }
+
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .language {
+            display: flex;
+            gap: 5px;
+            font-size: 13px;
+        }
+
+        .language span:last-child {
+            color: #555555;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .footer {
+            display: none;
+        }
+
+
+        @media print {
+
+            body {
+                background: #ffffff;
+            }
+
+            .resume {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .content {
+                padding-top: 15px;
+            }
+
+            .section {
+                margin-bottom: 15px;
+            }
+
+            a {
+                color: #222222;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .resume {
+                margin: 20px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                flex-direction: column;
+                gap: 3px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="resume">
+
+        <header class="header">
+
+            <h1>Sreenandan V U</h1>
+
+            <div class="job-title">
+                Computer Applications Student | Aspiring Software Developer
+            </div>
+
+            <div class="contact">
+
+                <span>+91 8075731357</span>
+
+                <span>sreenandanvu@gmail.com</span>
+
+                <span>Chengannur, Kerala, India</span>
+
+                <span>
+                    <a
+                        href="https://www.linkedin.com/in/sreenandan-v-u-b0b794325"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <main class="content">
+
+            <section class="section">
+
+                <h2 class="section-title">
+                    Profile
+                </h2>
+
+                <p class="summary">
+                    I am a passionate and curious MCA student with a strong
+                    interest in software development, artificial intelligence,
+                    and problem-solving. My goal is to apply my technical
+                    knowledge and creativity to develop efficient,
+                    user-friendly applications while continuing to learn and
+                    grow in a collaborative environment.
+                </p>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-title">
+                    Skills
+                </h2>
+
+
+                <div class="skills-grid">
+
+
+                    <div class="skill-category">
+
+                        <h3>
+                            Technical Skills
+                        </h3>
+
+                        <p>
+                            Web Development, Database Management,
+                            REST APIs, OOP, Data Structures
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill-category">
+
+                        <h3>
+                            Programming Languages
+                        </h3>
+
+                        <p>
+                            Python, Java, JavaScript, SQL
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill-category">
+
+                        <h3>
+                            Tools & Software
+                        </h3>
+
+                        <p>
+                            Git, GitHub, VS Code, MySQL, MongoDB
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill-category">
+
+                        <h3>
+                            Soft Skills
+                        </h3>
+
+                        <p>
+                            Problem Solving, Communication, Teamwork,
+                            Adaptability, Time Management
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+            <section class="section">
+
+                <h2 class="section-title">
+                    Education
+                </h2>
+
+
+                <div class="item">
+
+                    <h3>
+                        Master of Computer Applications (MCA)
+                    </h3>
+
+                    <div class="organization">
+                        College of Engineering, Trivandrum
+                    </div>
+
+                    <div class="meta">
+                        2026 - Present | Kerala, India
+                    </div>
+
+                </div>
+
+
+                <div class="item">
+
+                    <h3>
+                        Bachelor of Computer Science (B.Sc. CS)
+                    </h3>
+
+                    <div class="organization">
+                        College of Applied Sciences, Perissery
+                    </div>
+
+                    <div class="meta">
+                        2023 - 2026 | Kerala, India
+                    </div>
+
+                    <p>
+                        Graduated with 8.61 CGPA.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- PROJECTS -->
+
+<section class="section">
+
+    <h2 class="section-title">Projects</h2>
+
+
+    <!-- Project 1 -->
+    <div class="item">
+
+        <h3>Pet Shop Management System</h3>
+
+        <p>
+            <strong>Technologies:</strong>
+            PHP, MySQL, HTML, CSS, JavaScript
+        </p>
+
+        <p>
+            <strong>Description:</strong>
+            Developed a web-based system to digitalize pet shop
+            management, including pets, accessories, customers,
+            and online purchases.
+        </p>
+
+        <p>
+            <strong>Contribution:</strong>
+            Designed the user interface, implemented database
+            functionality, and developed pet, product, and
+            customer management features.
+        </p>
+
+    </div>
+
+
+    <!-- Project 2 -->
+    <div class="item">
+
+        <h3>LegalCare – AI-Powered Legal Assistance</h3>
+
+        <p>
+            <strong>Technologies:</strong>
+            MongoDB, Express.js, React.js, Node.js, AI
+        </p>
+
+        <p>
+            <strong>Description:</strong>
+            Developed a MERN-based platform providing digital
+            legal assistance through an AI chatbot, document
+            drafting, and document analysis.
+        </p>
+
+        <p>
+            <strong>Contribution:</strong>
+            Developed the web application, integrated AI-powered
+            features, and implemented document drafting and
+            analysis functionalities.
+        </p>
+
+    </div>
+
+</section>
+            <section class="section">
+
+                <h2 class="section-title">
+                    Languages
+                </h2>
+
+
+                <div class="languages">
+
+
+                    <div class="language">
+
+                        <span>English</span>
+
+                        <span>Professional</span>
+
+                    </div>
+
+
+                    <div class="language">
+
+                        <span>Malayalam</span>
+
+                        <span>Native</span>
+
+                    </div>
+
+
+                    <div class="language">
+
+                        <span>Hindi</span>
+
+                        <span>Conversational</span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <section class="section">
+
+                <h2 class="section-title">
+                    Leadership & Activities
+                </h2>
+
+
+                <div class="item">
+
+                    <h3>
+                        Technical Club Member
+                    </h3>
+
+                    <div class="organization">
+                        College Technical Club
+                    </div>
+
+                    <div class="meta">
+                        2024 - 2026
+                    </div>
+
+                    <p>
+                        Participated in coding events, technical workshops,
+                        project demonstrations, and student activities.
+                    </p>
+
+                </div>
+
+
+                <div class="item">
+
+                    <h3>
+                        Volunteer
+                    </h3>
+
+                    <div class="organization">
+                        National Service Scheme - Volunteer
+                    </div>
+
+                    <p>
+                        Assisted in organizing academic and community-focused
+                        events in the college.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
