@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Calendar</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #reset {
+            background-color: #dc3545;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px 5px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        td {
+            height: 25px;
+        }
+
+        td.today-date {
+            background-color: #d4edda;
+            font-weight: bold;
+        }
+
+        #calendarTitle {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Monthly Calendar</h2>
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" placeholder="Enter year"
+               min="1" max="9999" required>
+
+        <br>
+
+        <label for="month">Month:</label>
+        <select id="month">
+            <option value="">Select Month</option>
+            <option value="0">January</option>
+            <option value="1">February</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">August</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
+        </select>
+
+        <br>
+
+        <button onclick="generateCalendar()">
+            Generate Calendar
+        </button>
+
+        <button id="reset" onclick="resetCalendar()">
+            Reset
+        </button>
+
+        <h3 id="calendarTitle"></h3>
+
+        <div id="calendar"></div>
+    </div>
+
+    <script>
+        function generateCalendar() {
+            let year = parseInt(document.getElementById("year").value);
+            let month = document.getElementById("month").value;
+
+            if (!Number.isInteger(year) || year < 1 ||
+                year > 9999 || month === "") {
+                alert("Please enter a valid year and select a month.");
+                return;
+            }
+
+            month = parseInt(month);
+
+            // Find the starting day of the month
+            let startDay = new Date(year, month, 1).getDay();
+
+            // Find the number of days in the month
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let monthNames = [
+                "January", "February", "March", "April",
+                "May", "June", "July", "August",
+                "September", "October", "November", "December"
+            ];
+
+            let calendarHTML = "<table>";
+            calendarHTML += "<tr>";
+
+            let days = ["Sun", "Mon", "Tue", "Wed",
+                        "Thu", "Fri", "Sat"];
+
+            for (let day of days) {
+                calendarHTML += "<th>" + day + "</th>";
+            }
+
+            calendarHTML += "</tr><tr>";
+
+            // Add empty cells before the first date
+            for (let i = 0; i < startDay; i++) {
+                calendarHTML += "<td></td>";
+            }
+
+            // Add the dates to the calendar
+            for (let date = 1; date <= daysInMonth; date++) {
+                calendarHTML += "<td>" + date + "</td>";
+
+                if ((startDay + date) % 7 === 0 &&
+                    date !== daysInMonth) {
+                    calendarHTML += "</tr><tr>";
+                }
+            }
+
+            // Add empty cells after the last date
+            let remaining = (7 - (startDay + daysInMonth) % 7) % 7;
+
+            for (let i = 0; i < remaining; i++) {
+                calendarHTML += "<td></td>";
+            }
+
+            calendarHTML += "</tr></table>";
+
+            document.getElementById("calendarTitle").innerText =
+                monthNames[month] + " " + year;
+
+            document.getElementById("calendar").innerHTML =
+                calendarHTML;
+        }
+
+        function resetCalendar() {
+            document.getElementById("year").value = "";
+            document.getElementById("month").value = "";
+            document.getElementById("calendarTitle").innerText = "";
+            document.getElementById("calendar").innerHTML = "";
+        }
+    </script>
+
+</body>
+</html>

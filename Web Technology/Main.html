@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Technology</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h2 {
+            margin: 5px 0 20px;
+            font-size: 28px;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin: 5px;
+            padding: 10px 14px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #374151;
+        }
+
+        main {
+            width: 75%;
+            max-width: 1000px;
+            margin: 30px auto;
+            min-height: 500px;
+        }
+
+        section {
+            display: none;
+        }
+
+        section:target {
+            display: block;
+        }
+
+        section > h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1f2937;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: 18px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px #ddd;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #374151;
+        }
+
+        .card p {
+            line-height: 1.6;
+        }
+
+        .card li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>Web Technology</h2>
+
+    <nav>
+
+        <a href="#cs">Client/Server</a>
+
+        <a href="#cwa">Web Application</a>
+
+        <a href="#twc">Web Content</a>
+
+        <a href="#http">HTTP</a>
+
+        <a href="#dwp">Dynamic Web Pages</a>
+
+        <a href="#as">Application Servers</a>
+
+        <a href="#ws">Web Security</a>
+
+    </nav>
+</header>
+<main>
+    <section id="cs">
+
+        <h2>Client/Server Architecture</h2>
+
+
+        <div class="card">
+
+            <h3>Definition of Client</h3>
+
+            <p>
+                A client is a device or application that requests
+                services or resources from a server. A web browser
+                is an example of a client.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Definition of Server</h3>
+
+            <p>
+                A server is a computer or system that provides
+                services or resources to clients. It receives
+                requests, processes them and sends responses.
+            </p>
+
+        </div>
+
+    </section>
+    <section id="cwa">
+
+        <h2>Components of Web Application</h2>
+
+
+        <div class="card">
+
+            <h3>View Layer</h3>
+
+            <p>
+                The View Layer is the part of a web application
+                that users interact with. It displays information
+                and provides the user interface.
+            </p>
+
+            <p>
+                Examples include web pages, forms, buttons and menus.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Business Layer</h3>
+
+            <p>
+                The Business Layer contains the main logic and
+                rules of the application. It processes user
+                requests and performs the required operations.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Data Access Layer</h3>
+
+            <p>
+                The Data Access Layer communicates with the database.
+                It is responsible for storing, retrieving, updating
+                and deleting application data.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section id="twc">
+
+        <h2>Types of Web Content</h2>
+
+
+        <div class="card">
+
+            <h3>Text</h3>
+
+            <p>
+                Text is used to display information such as headings,
+                paragraphs, articles and descriptions.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Images</h3>
+
+            <p>
+                Images provide visual information and make web pages
+                more attractive and easier to understand.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Audio</h3>
+
+            <p>
+                Audio includes music, podcasts, voice recordings
+                and other sound content available on websites.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Video</h3>
+
+            <p>
+                Video is used for tutorials, education, entertainment,
+                advertisements and other multimedia content.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Animation</h3>
+
+            <p>
+                Animation creates moving visual effects and can be
+                used to make web pages more interactive.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section id="http">
+
+        <h2>HTTP and HTTP Request</h2>
+
+
+        <div class="card">
+
+            <h3>Definition of HTTP</h3>
+
+            <p>
+                HTTP stands for HyperText Transfer Protocol.
+                It is a protocol used for communication between
+                web browsers and web servers.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>HTTP Request and Response</h3>
+
+            <p>
+                An HTTP request is a message sent by a client to
+                a server to request a resource such as a webpage
+                or data.
+            </p>
+
+            <p>
+                An HTTP response is the message sent by the server
+                back to the client after processing the request.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Working of HTTP Communication</h3>
+
+            <ol>
+
+                <li>The client sends an HTTP request.</li>
+
+                <li>The server receives the request.</li>
+
+                <li>The server processes the request.</li>
+
+                <li>The server prepares a response.</li>
+
+                <li>The response is sent back to the client.</li>
+
+                <li>The client displays the result.</li>
+
+            </ol>
+
+        </div>
+
+    </section>
+
+    <section id="dwp">
+
+        <h2>Dynamic Web Pages</h2>
+
+
+        <div class="card">
+
+            <h3>Definition</h3>
+
+            <p>
+                A dynamic web page is a webpage whose content
+                can change based on user input, time, database
+                information or other conditions.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Characteristics</h3>
+
+            <ul>
+
+                <li>Content can change according to user interaction.</li>
+
+                <li>Can use data stored in databases.</li>
+
+                <li>Can provide personalized content.</li>
+
+                <li>Can respond to user input.</li>
+
+                <li>Content can be updated automatically.</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Examples</h3>
+
+            <ul>
+
+                <li>Online shopping websites</li>
+
+                <li>Social media websites</li>
+
+                <li>Online banking websites</li>
+
+                <li>News websites</li>
+
+                <li>Online learning platforms</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <section id="as">
+
+        <h2>Application Servers</h2>
+
+
+        <div class="card">
+
+            <h3>Definition</h3>
+
+            <p>
+                An application server is a server that provides
+                an environment for running web applications and
+                their business logic.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Purpose</h3>
+
+            <p>
+                The main purpose of an application server is to
+                process application requests, execute business
+                logic and communicate with databases and other
+                services.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Major Services</h3>
+
+            <ul>
+
+                <li>Application processing</li>
+
+                <li>Database connectivity</li>
+
+                <li>Security and authentication</li>
+
+                <li>Session management</li>
+
+                <li>Transaction management</li>
+
+                <li>Resource management</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- WEB SECURITY -->
+
+    <section id="ws">
+
+        <h2>Web Security</h2>
+
+
+        <div class="card">
+
+            <h3>Definition</h3>
+
+            <p>
+                Web security is the practice of protecting websites,
+                web applications and user data from unauthorized
+                access and cyber attacks.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Importance</h3>
+
+            <p>
+                Web security protects sensitive information, prevents
+                unauthorized access and keeps web applications safe
+                from different types of attacks.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Basic Security Measures</h3>
+
+            <ul>
+
+                <li>Use HTTPS for secure communication.</li>
+
+                <li>Use strong passwords.</li>
+
+                <li>Validate user input.</li>
+
+                <li>Use proper authentication and authorization.</li>
+
+                <li>Keep software and systems updated.</li>
+
+                <li>Protect sensitive user information.</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <p>© 2026 Sreenandan V U</p>
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Reference</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home">
+  <header>
+    <h1>CSS Reference</h1>
+    <p>Welcome! Pick a topic from the menu to look up properties, selectors, functions, units and more.</p>
+  </header>
+
+  <!-- CSS animation replaces the obsolete <marquee> element -->
+  <div class="ticker" aria-hidden="true">
+    <span>display: grid; &nbsp;&nbsp; color: rebeccapurple; &nbsp;&nbsp; transition: all .3s ease; &nbsp;&nbsp; margin: 0 auto; &nbsp;&nbsp; font-size: clamp(1rem, 2vw, 2rem); &nbsp;&nbsp; transform: rotate(45deg);</span>
+  </div>
+
+  <div class="layout">
+    <nav aria-label="CSS Reference Menu">
+      <h2>CSS Reference Menu</h2>
+      <ul>
+        <li><a href="properties.html" target="content" class="active">CSS Properties Reference</a></li>
+        <li><a href="selectors.html" target="content">CSS Selectors Reference</a></li>
+        <li><a href="functions.html" target="content">CSS Functions Reference</a></li>
+        <li><a href="animatable.html" target="content">CSS Animatable Reference</a></li>
+        <li><a href="aural.html" target="content">CSS Aural Reference</a></li>
+        <li><a href="units.html" target="content">CSS Units</a></li>
+        <li><a href="colors.html" target="content">CSS Color Reference</a></li>
+        <li><a href="defaults.html" target="content">CSS Default Values</a></li>
+        <li><a href="browsers.html" target="content">CSS Browser Support</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <iframe name="content" src="properties.html" title="CSS reference content"></iframe>
+    </main>
+  </div>
+
+  <footer>CSS Reference &copy; 2026</footer>
+
+  <script>
+    // Highlight the menu link that was clicked
+    document.querySelectorAll('nav a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        document.querySelectorAll('nav a').forEach(function (l) { l.classList.remove('active'); });
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

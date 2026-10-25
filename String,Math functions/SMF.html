@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String and Math Functions</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px #ccc;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            width: 95%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 9px 14px;
+            margin: 5px 3px 5px 0;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003d80;
+        }
+
+        .result {
+            background-color: #eaf3ff;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 4px;
+            overflow-wrap: anywhere;
+        }
+
+        .operation {
+            margin-top: 18px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        label {
+            display: block;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>JavaScript String and Math Functions</h1>
+
+    <!-- STRING FUNCTIONS -->
+    <div class="section">
+        <h2>String Functions</h2>
+
+        <label>Enter a string:</label>
+        <input type="text" id="str"
+               placeholder="Enter a sentence or text">
+
+        <label>Enter a word to search or replace:</label>
+        <input type="text" id="word"
+               placeholder="Enter a word">
+
+        <label>Enter replacement word:</label>
+        <input type="text" id="replacement"
+               placeholder="Enter replacement text">
+
+        <div class="operation">
+            <button onclick="lengthString()">Find Length</button>
+            <button onclick="firstOccurrence()">First Occurrence</button>
+            <button onclick="lastOccurrence()">Last Occurrence</button>
+            <button onclick="searchWord()">Search Word</button>
+            <button onclick="replaceWord()">Replace Word</button>
+            <button onclick="toUpper()">Uppercase</button>
+            <button onclick="toLower()">Lowercase</button>
+        </div>
+
+        <div class="operation">
+            <label>Start index:</label>
+            <input type="number" id="start" value="0">
+
+            <label>End index / Length:</label>
+            <input type="number" id="end" value="5">
+
+            <button onclick="sliceString()">Slice</button>
+            <button onclick="substringString()">Substring</button>
+            <button onclick="substrString()">Substr</button>
+        </div>
+
+        <div class="result" id="stringResult">
+            String results will appear here.
+        </div>
+    </div>
+
+    <!-- MATH FUNCTIONS -->
+    <div class="section">
+        <h2>Math Functions</h2>
+
+        <label>Enter first number:</label>
+        <input type="number" id="num1" value="16" step="any">
+
+        <label>Enter second number:</label>
+        <input type="number" id="num2" value="4" step="any">
+
+        <div class="operation">
+            <button onclick="power()">Power</button>
+            <button onclick="squareRoot()">Square Root</button>
+            <button onclick="roundNum()">Round</button>
+            <button onclick="ceilNum()">Ceiling</button>
+            <button onclick="floorNum()">Floor</button>
+            <button onclick="absolute()">Absolute</button>
+        </div>
+
+        <div class="operation">
+            <label>Angle in degrees (for sine and cosine):</label>
+            <input type="number" id="angle" value="30" step="any">
+
+            <button onclick="sine()">Sine</button>
+            <button onclick="cosine()">Cosine</button>
+        </div>
+
+        <div class="operation">
+            <button onclick="minNum()">Minimum</button>
+            <button onclick="maxNum()">Maximum</button>
+            <button onclick="randomNum()">Random Number (0–100)</button>
+        </div>
+
+        <div class="result" id="mathResult">
+            Math results will appear here.
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Get string input
+    function getString() {
+        return document.getElementById("str").value;
+    }
+
+    function getWord() {
+        return document.getElementById("word").value;
+    }
+
+    function showString(result) {
+        document.getElementById("stringResult").textContent =
+            result;
+    }
+
+    // String functions
+    function lengthString() {
+        showString("Length: " + getString().length);
+    }
+
+    function firstOccurrence() {
+        showString("First occurrence: " +
+            getString().indexOf(getWord()));
+    }
+
+    function lastOccurrence() {
+        showString("Last occurrence: " +
+            getString().lastIndexOf(getWord()));
+    }
+
+    function searchWord() {
+        let index = getString().search(getWord());
+
+        showString(index === -1
+            ? "Word not found."
+            : "Word found at index: " + index);
+    }
+
+    function replaceWord() {
+        let word = getWord();
+
+        if (word === "") {
+            showString("Please enter a word to replace.");
+            return;
+        }
+
+        let replacement =
+            document.getElementById("replacement").value;
+
+        showString(getString().replace(word, replacement));
+    }
+
+    function toUpper() {
+        showString(getString().toUpperCase());
+    }
+
+    function toLower() {
+        showString(getString().toLowerCase());
+    }
+
+    function sliceString() {
+        let s = Number(document.getElementById("start").value);
+        let e = Number(document.getElementById("end").value);
+
+        showString(getString().slice(s, e));
+    }
+
+    function substringString() {
+        let s = Number(document.getElementById("start").value);
+        let e = Number(document.getElementById("end").value);
+
+        showString(getString().substring(s, e));
+    }
+
+    function substrString() {
+        let s = Number(document.getElementById("start").value);
+        let e = Number(document.getElementById("end").value);
+
+        showString(getString().substr(s, e));
+    }
+
+    // Get numeric inputs
+    function getNum1() {
+        return Number(document.getElementById("num1").value);
+    }
+
+    function getNum2() {
+        return Number(document.getElementById("num2").value);
+    }
+
+    function showMath(result) {
+        document.getElementById("mathResult").textContent =
+            result;
+    }
+
+    // Math functions
+    function power() {
+        showMath("Power: " + Math.pow(getNum1(), getNum2()));
+    }
+
+    function squareRoot() {
+        let n = getNum1();
+
+        showMath(n < 0
+            ? "Square root of a negative number is not real."
+            : "Square Root: " + Math.sqrt(n));
+    }
+
+    function roundNum() {
+        showMath("Rounded value: " + Math.round(getNum1()));
+    }
+
+    function ceilNum() {
+        showMath("Ceiling value: " + Math.ceil(getNum1()));
+    }
+
+    function floorNum() {
+        showMath("Floor value: " + Math.floor(getNum1()));
+    }
+
+    function absolute() {
+        showMath("Absolute value: " + Math.abs(getNum1()));
+    }
+
+    function sine() {
+        let angle = Number(
+            document.getElementById("angle").value
+        );
+
+        showMath("Sine: " +
+            Math.sin(angle * Math.PI / 180));
+    }
+
+    function cosine() {
+        let angle = Number(
+            document.getElementById("angle").value
+        );
+
+        showMath("Cosine: " +
+            Math.cos(angle * Math.PI / 180));
+    }
+
+    function minNum() {
+        showMath("Minimum: " +
+            Math.min(getNum1(), getNum2()));
+    }
+
+    function maxNum() {
+        showMath("Maximum: " +
+            Math.max(getNum1(), getNum2()));
+    }
+
+    function randomNum() {
+        showMath("Random number (0–100): " +
+            Math.floor(Math.random() * 101));
+    }
+</script>
+
+</body>
+</html>
