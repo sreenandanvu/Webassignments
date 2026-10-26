@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Assignments | Project Hub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #0b1120;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 75px 20px 65px;
+            background:
+                radial-gradient(ellipse at top, #1e40af55, transparent 65%),
+                linear-gradient(135deg, #111827, #0b1120);
+            border-bottom: 1px solid #263449;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 15px;
+            border: 1px solid #3b82f655;
+            border-radius: 30px;
+            background: #2563eb18;
+            color: #93c5fd;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        header h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        header h1 span {
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        header p {
+            max-width: 580px;
+            margin: auto;
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1180px;
+            margin: auto;
+            padding: 50px 24px 70px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            font-size: 25px;
+            color: #f8fafc;
+        }
+
+        .project-count {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Search */
+        .search-box {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        #search {
+            width: 100%;
+            padding: 16px 20px 16px 48px;
+            border: 1px solid #29364a;
+            border-radius: 12px;
+            background: #111b2e;
+            color: #f1f5f9;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s,
+                        background 0.3s;
+        }
+
+        #search::placeholder {
+            color: #64748b;
+        }
+
+        #search:focus {
+            border-color: #60a5fa;
+            background: #142038;
+            box-shadow: 0 0 0 4px #3b82f620;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 17px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 19px;
+            pointer-events: none;
+        }
+
+        /* Project Grid */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        /* Project Card */
+        .card {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 225px;
+            padding: 25px;
+            border: 1px solid #263449;
+            border-radius: 17px;
+            background: linear-gradient(145deg, #151f32, #101827);
+            transition: transform 0.3s ease,
+                        border-color 0.3s ease,
+                        box-shadow 0.3s ease,
+                        background 0.3s ease;
+            animation: fadeUp 0.55s ease both;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #a78bfa);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #3b82f680;
+            background: linear-gradient(145deg, #192842, #111b2e);
+            box-shadow: 0 18px 40px #00000035,
+                        0 0 20px #3b82f610;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border: 1px solid #60a5fa25;
+            border-radius: 13px;
+            background: #3b82f61c;
+            font-size: 23px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .card:hover .icon {
+            transform: rotate(-6deg) scale(1.08);
+            background: #3b82f635;
+        }
+
+        .number {
+            color: #475569;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .card h3 {
+            font-size: 19px;
+            color: #f8fafc;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 22px;
+        }
+
+        .card a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #3b82f63d;
+            border-radius: 9px;
+            background: #2563eb17;
+            color: #93c5fd;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.25s, background 0.25s,
+                        border-color 0.25s;
+        }
+
+        .card a span {
+            transition: transform 0.25s;
+        }
+
+        .card a:hover {
+            color: white;
+            background: #2563eb;
+            border-color: #3b82f6;
+        }
+
+        .card a:hover span {
+            transform: translateX(4px);
+        }
+
+        /* No Results */
+        #noResults {
+            display: none;
+            text-align: center;
+            color: #94a3b8;
+            padding: 50px 15px;
+            border: 1px dashed #334155;
+            border-radius: 14px;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #263449;
+            background: #080d18;
+            text-align: center;
+            padding: 28px 20px;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: #93c5fd;
+        }
+
+        /* Animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .projects {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            header {
+                padding: 60px 20px 50px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 560px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 35px 16px 50px;
+            }
+
+            .card {
+                min-height: 210px;
+            }
+
+            .section-heading h2 {
+                font-size: 22px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="badge">Personal Project Collection</div>
+        <h1>My Web <span>Assignments</span></h1>
+        <p>
+            Explore my collection of HTML, CSS and JavaScript projects.
+            All my web development practice in one place.
+        </p>
+    </header>
+
+    <main class="container">
+
+        <div class="section-heading">
+            <h2>Explore Projects</h2>
+            <span class="project-count" id="projectCount">
+                10 projects
+            </span>
+        </div>
+
+        <div class="search-box">
+            <span class="search-icon">&#9906;</span>
+            <input
+                type="search"
+                id="search"
+                placeholder="Search projects by name..."
+                aria-label="Search projects"
+                oninput="searchProjects()"
+            >
+        </div>
+
+        <div class="projects" id="projects">
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">🖱️</div>
+                    <span class="number">01</span>
+                </div>
+                <h3>Mouse Events</h3>
+                <p>Interactive webpage using mouseover and mouseout events.</p>
+                <a href="./Mouse%20events/index.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">🎨</div>
+                    <span class="number">02</span>
+                </div>
+                <h3>Background Color</h3>
+                <p>Experiment with changing webpage background colors.</p>
+                <a href="./BG-color/index.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">✅</div>
+                    <span class="number">03</span>
+                </div>
+                <h3>Webpage Validation</h3>
+                <p>Form validation and user input checking using JavaScript.</p>
+                <a href="./Webpage%20Validation/index.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">📅</div>
+                    <span class="number">04</span>
+                </div>
+                <h3>Calendar</h3>
+                <p>A calendar webpage built using web technologies.</p>
+                <a href="./Calander/index.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">🧮</div>
+                    <span class="number">05</span>
+                </div>
+                <h3>String & Math Functions</h3>
+                <p>Examples of JavaScript string and mathematical functions.</p>
+                <a href="./String%2CMath%20functions/SMF.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">💻</div>
+                    <span class="number">06</span>
+                </div>
+                <h3>CSS Collection</h3>
+                <p>CSS selectors, properties, colors, units and functions.</p>
+                <a href="./CSS/index.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">📝</div>
+                    <span class="number">07</span>
+                </div>
+                <h3>Job Application</h3>
+                <p>A webpage demonstrating a job application form.</p>
+                <a href="./Job%20Application/index.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">🌐</div>
+                    <span class="number">08</span>
+                </div>
+                <h3>Web Technology</h3>
+                <p>Web technology concepts and related assignments.</p>
+                <a href="./Web%20Technology/index.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">👨‍💻</div>
+                    <span class="number">09</span>
+                </div>
+                <h3>Resume</h3>
+                <p>A personal resume created using HTML and CSS.</p>
+                <a href="./Resume/index.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon">🗂️</div>
+                    <span class="number">10</span>
+                </div>
+                <h3>Frames Website</h3>
+                <p>A demonstration of HTML frames and page navigation.</p>
+                <a href="./Frames-Website/index.html">
+                    View Project <span>→</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div id="noResults">
+            <h3>No projects found</h3>
+            <p>Try searching with another keyword.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with HTML, CSS & JavaScript</p>
+        <p>Web Development Practice · <span>GitHub Pages</span></p>
+    </footer>
+
+    <script>
+        function searchProjects() {
+            const query = document.getElementById("search")
+                .value.toLowerCase().trim();
+
+            const cards = document.querySelectorAll(".card");
+            const noResults = document.getElementById("noResults");
+            const projectCount = document.getElementById("projectCount");
+
+            let visibleCount = 0;
+
+            cards.forEach(function(card) {
+                const matches = card.textContent
+                    .toLowerCase().includes(query);
+
+                card.style.display = matches ? "flex" : "none";
+
+                if (matches) {
+                    visibleCount++;
+                }
+            });
+
+            noResults.style.display =
+                visibleCount === 0 ? "block" : "none";
+
+            projectCount.textContent =
+                visibleCount + (visibleCount === 1
+                    ? " project"
+                    : " projects");
+        }
+    </script>
+
+</body>
+</html>
